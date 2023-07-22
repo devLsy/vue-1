@@ -1,5 +1,4 @@
 <template>
-
   <!-- modal -->
   <div class="black-bg" v-if="showModal">
     <div class="white-bg">
@@ -13,28 +12,26 @@
     <a v-for="item in menus" :key="item">{{ item}}</a>
   </div>
 
-  <!-- <div v-for="(item, i) in products" :key="item"> -->
-  <div>
-    <img src="https://thumb.mt.co.kr/06/2022/04/2022041908320494725_1.jpg/dims/optimize" class="img">
-    <h4 @click="showModal = true">{{ products[0]}}</h4>
-  </div>    
-  <div> 
-    <img src="https://d2qgx4jylglh9c.cloudfront.net/kr/wp-content/uploads/2019/09/ironman-e1569489910569.jpg">
-    <h4>{{ products[1]}}</h4>
-  </div>    
-  <div>
-    <img src="https://image.kmib.co.kr/online_image/2016/1101/201611012221_13200923635585_1.jpg">
-    <h4>{{ products[2]}}</h4>
-  </div>    
+  <h1>어흥 부동산</h1>
+
+  <div v-for="(item, i) in rooms" :key="item">
+    <img :src="rooms[i].image" class="img">
+    <h4 @click="showModal = true">{{ rooms[i].title }}</h4>
+    <p>{{ rooms[i].content }}</p>
+    <p>가격: {{ rooms[i].price }}원</p>
+  </div>      
 </template>
 
 <script>
 
+import data from './assets/oneroom.js';
 
 export default {
   name: 'App',
+  // state
   data() {
     return {
+      rooms: data,
       showModal: false,
       counter: [0,0,0],
       products: ['thor', 'ironMan', 'doctor strange'],
@@ -42,9 +39,7 @@ export default {
     }
   },
   methods: {
-    add() {
-      this.counter ++;
-    },  
+    
   },
   components: {
     
