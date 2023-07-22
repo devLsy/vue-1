@@ -1,11 +1,12 @@
 <template>
 
   <!-- modal -->
-  <div class="black-bg">
+  <div class="black-bg" v-if="showModal">
     <div class="white-bg">
       <h4>상세화면</h4>
       <p>상세 내용</p>
     </div>
+    <button @click="showModal = false">close</button>
   </div>
 
   <div class="menu">
@@ -15,7 +16,7 @@
   <!-- <div v-for="(item, i) in products" :key="item"> -->
   <div>
     <img src="https://thumb.mt.co.kr/06/2022/04/2022041908320494725_1.jpg/dims/optimize" class="img">
-    <h4>{{ products[0]}}</h4>
+    <h4 @click="showModal = true">{{ products[0]}}</h4>
   </div>    
   <div> 
     <img src="https://d2qgx4jylglh9c.cloudfront.net/kr/wp-content/uploads/2019/09/ironman-e1569489910569.jpg">
@@ -34,6 +35,7 @@ export default {
   name: 'App',
   data() {
     return {
+      showModal: false,
       counter: [0,0,0],
       products: ['thor', 'ironMan', 'doctor strange'],
       menus: ['Home', 'Shop', 'About'],
