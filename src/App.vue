@@ -7,6 +7,7 @@
   <div v-for="(item, i) in products" :key="item">
     <h4>{{ products[i]}} 원룸</h4>
     <p>60만원</p>
+    <button @click="add">허위매물신고</button> <span>신고수: {{ counter }}</span>
   </div>    
 </template>
 
@@ -17,13 +18,19 @@ export default {
   name: 'App',
   data() {
     return {
+      counter: 0,
       products: ['역삼동원룸', '천호동원룸', '마포구원룸'],
       menus: ['Home', 'Shop', 'About'],
     }
   },
+  methods: {
+    add() {
+      this.counter ++;
+    },  
+  },
   components: {
     
-  }
+  } 
 }
 </script>
 
