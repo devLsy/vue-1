@@ -1,13 +1,29 @@
 <template>
 
+  <!-- modal -->
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>상세화면</h4>
+      <p>상세 내용</p>
+    </div>
+  </div>
+
   <div class="menu">
     <a v-for="item in menus" :key="item">{{ item}}</a>
   </div>
 
-  <div v-for="(item, i) in products" :key="item">
-    <h4>{{ products[i]}} 원룸</h4>
-    <p>60만원</p>
-    <button @click="add">허위매물신고</button> <span>신고수: {{ counter }}</span>
+  <!-- <div v-for="(item, i) in products" :key="item"> -->
+  <div>
+    <img src="https://thumb.mt.co.kr/06/2022/04/2022041908320494725_1.jpg/dims/optimize" class="img">
+    <h4>{{ products[0]}}</h4>
+  </div>    
+  <div> 
+    <img src="https://d2qgx4jylglh9c.cloudfront.net/kr/wp-content/uploads/2019/09/ironman-e1569489910569.jpg">
+    <h4>{{ products[1]}}</h4>
+  </div>    
+  <div>
+    <img src="https://image.kmib.co.kr/online_image/2016/1101/201611012221_13200923635585_1.jpg">
+    <h4>{{ products[2]}}</h4>
   </div>    
 </template>
 
@@ -18,8 +34,8 @@ export default {
   name: 'App',
   data() {
     return {
-      counter: 0,
-      products: ['역삼동원룸', '천호동원룸', '마포구원룸'],
+      counter: [0,0,0],
+      products: ['thor', 'ironMan', 'doctor strange'],
       menus: ['Home', 'Shop', 'About'],
     }
   },
@@ -35,6 +51,27 @@ export default {
 </script>
 
 <style>
+
+body {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.black-bg {
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0,.5);
+  position: fixed; padding: 20px;
+}
+
+.white-bg {
+  width: 100%; background: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -54,5 +91,12 @@ export default {
   color: white;
   padding: 10px;
 }
+
+.img {
+  width: 100%;
+  margin-top: 40px;
+}
+
+
 
 </style>
