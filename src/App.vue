@@ -5,8 +5,8 @@
     <div class="white-bg">
       <h4>상세화면</h4>
       <p>상세 내용</p>
+      <button @click="showModal = false">close</button>
     </div>
-    <button @click="showModal = false">close</button>
   </div>
 
   <div class="menu">
